@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>资产预览 · 暗黑超自然少年漫风</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --line: #30363d;
+    --text: #c9d1d9;
+    --dim: #8b949e;
+    --accent: #4fd6ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 32px 24px 80px;
+    background: var(--bg);
+    color: var(--text);
+    font: 14px/1.6 -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+  }
+  h1 { font-size: 20px; margin: 0 0 4px; letter-spacing: .5px; }
+  h1 span { color: var(--accent); }
+  .sub { color: var(--dim); font-size: 13px; margin-bottom: 28px; }
+
+  h2 {
+    font-size: 13px; text-transform: uppercase; letter-spacing: 1.4px;
+    color: var(--dim); margin: 36px 0 14px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .grid { display: flex; flex-wrap: wrap; gap: 16px; }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 240px;
+  }
+  .card.wide { width: 660px; }
+
+  /* 两种底：真实草坪色 / 棋盘格查透明 */
+  .stage {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    height: 220px;
+    background-color: #2b3d2f;
+    background-image:
+      repeating-linear-gradient(45deg, #3a4453 0 10px, #2c3440 10px 20px);
+    background-blend-mode: normal;
+  }
+  .stage.on-checker {
+    background-color: #1a1a1a;
+    background-image:
+      linear-gradient(45deg, #2a2a2a 25%, transparent 25%),
+      linear-gradient(-45deg, #2a2a2a 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #2a2a2a 75%),
+      linear-gradient(-45deg, transparent 75%, #2a2a2a 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+  }
+  .stage img { image-rendering: auto; }
+
+  /* 放大镜：像素级查看 */
+  .stage img.zoom { transform: scale(var(--z, 2)); transform-origin: center; }
+
+  .meta { padding: 10px 12px; border-top: 1px solid var(--line); }
+  .meta .name { font-weight: 600; color: #fff; font-size: 13px; }
+  .meta .desc { color: var(--dim); font-size: 12px; margin-top: 2px; }
+  .meta code { color: var(--accent); font-size: 11px; }
+
+  /* 平铺演示 */
+  .tiler {
+    height: 220px;
+    background-color: #2b3d2f;
+    background-repeat: repeat;
+    background-size: 96px 96px; /* 2x */
+    image-rendering: pixelated;
+  }
+
+  /* 切帧对比 */
+  .pair { display: flex; gap: 12px; align-items: flex-end; }
+  .frame { position: relative; }
+  .frame::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+    height: 1px; background: #ff4d6d; opacity: .7;
+  }
+  .anchor-label {
+    position: absolute; bottom: -22px; left: 0; width: 100%;
+    text-align: center; font-size: 11px; color: #ff8fa3;
+  }
+
+  .toggle {
+    position: fixed; right: 20px; bottom: 20px;
+    background: var(--panel); border: 1px solid var(--line);
+    color: var(--text); padding: 9px 16px; border-radius: 20px;
+    cursor: pointer; font-size: 12px;
+  }
+  .toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+  .badge {
+    display: inline-block; font-size: 10px; padding: 1px 6px;
+    border-radius: 3px; background: #1f6feb33; color: var(--accent);
+    border: 1px solid #1f6feb66; margin-left: 6px; vertical-align: 1px;
+  }
+</style>
+</head>
+<body>
+  <h1>资产预览 · <span>暗黑超自然少年漫风</span></h1>
+  <div class="sub">
+    粗黑墨线 / 低饱和冷色调 / 咒力裂纹发光 · 全部程序化生成 · 无 filter、无外链、无文字
+  </div>
+
+  <h2>角色 · 僵尸两帧（锚点对齐检查，红线 = y 底边）</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="stage">
+        <div class="pair">
+          <div class="frame" style="height:192px">
+            <img src="zombie-idle.svg" height="192" alt="idle" />
+            <div class="anchor-label">idle</div>
+          </div>
+          <div class="frame" style="height:192px">
+            <img src="zombie-eat.svg" height="192" alt="eat" />
+            <div class="anchor-label">eat</div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="name">zombie-idle / zombie-eat <span class="badge">64×96</span></div>
+        <div class="desc">脚底 y=95/96，两帧包围盒一致</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>植物 / 唤灵体</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="stage"><img src="plant-shooter.svg" height="150" alt="shooter" /></div>
+      <div class="meta">
+        <div class="name">plant-shooter <span class="badge">48×48</span></div>
+        <div class="desc">正面 · 中心发射口 · 底部对齐</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="stage"><img src="plant-wall.svg" height="150" alt="wall" /></div>
+      <div class="meta">
+        <div class="name">plant-wall <span class="badge">48×48</span></div>
+        <div class="desc">硬壳梯形 · 纵向裂纹 · 高血感</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="stage"><img src="plant-slow.svg" height="150" alt="slow" /></div>
+      <div class="meta">
+        <div class="name">plant-slow <span class="badge">48×48</span></div>
+        <div class="desc">冷紫孢子 · 同心雾环 · 中心微光</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="stage"><img src="bullet.svg" height="40" alt="bullet" /></div>
+      <div class="meta">
+        <div class="name">bullet <span class="badge">12×12</span></div>
+        <div class="desc">金色菱形 · 中心 (6,6)</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>图块 · 无缝平铺演示（2× 缩放）</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="tiler" style="background-image:url('house-tile.svg')"></div>
+      <div class="meta">
+        <div class="name">house-tile <span class="badge">48×48</span></div>
+        <div class="desc">俯视瓦顶 · 四边无缝</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="tiler" style="background-image:url('grass-tile.svg')"></div>
+      <div class="meta">
+        <div class="name">grass-tile <span class="badge">48×48</span></div>
+        <div class="desc">深绿草地 · 低对比可平铺</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>封面 · 630×500（内部 16:9 安全区，上半留标题位）</h2>
+  <div class="grid">
+    <div class="card wide">
+      <div class="stage" style="height:auto">
+        <img src="cover.svg" width="630" alt="cover" style="display:block;width:100%" />
+      </div>
+      <div class="meta">
+        <div class="name">cover.svg → cover.png <span class="badge">630×500</span></div>
+        <div class="desc">上 150px / 下 60px 留白 · 无文字、无 IP 元素</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>透明性检查</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="stage on-checker"><img src="zombie-idle.svg" height="150" alt="z" /></div>
+      <div class="meta"><div class="name">zombie-idle（棋盘格底）</div></div>
+    </div>
+    <div class="card">
+      <div class="stage on-checker"><img src="plant-shooter.svg" height="150" alt="s" /></div>
+      <div class="meta"><div class="name">plant-shooter（棋盘格底）</div></div>
+    </div>
+    <div class="card">
+      <div class="stage on-checker"><img src="plant-wall.svg" height="150" alt="w" /></div>
+      <div class="meta"><div class="name">plant-wall（棋盘格底）</div></div>
+    </div>
+    <div class="card">
+      <div class="stage on-checker"><img src="plant-slow.svg" height="150" alt="l" /></div>
+      <div class="meta"><div class="name">plant-slow（棋盘格底）</div></div>
+    </div>
+  </div>
+
+  <button class="toggle" id="tg">切换透明背景</button>
+  <script>
+    let checker = false;
+    document.getElementById('tg').addEventListener('click', () => {
+      checker = !checker;
+      document.querySelectorAll('.stage:not(.on-checker)').forEach(el => {
+        el.classList.toggle('on-checker', checker);
+      });
+    });
+  </script>
+</body>
+</html>

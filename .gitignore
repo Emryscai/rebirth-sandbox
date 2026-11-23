@@ -1,0 +1,28 @@
+node_modules/
+dist/
+.vite/
+*.local
+.DS_Store
+Thumbs.db
+
+# 临时预览文件
+_p.png
+_preview_small.png
+_preview_small.jpg
+_t.py
+__pycache__/
+
+# 切图调试脚本与临时渲染产物（开发过程用，不进仓库）
+devtest/
+_test_shot.png
+
+# 构建产物与自动化测试临时目录
+build/
+build-assets/
+.chrome-*/
+chrome_console.log
+devserver*.log
+_research/
+
+# 未命名临时抓图（未被任何代码引用）
+973babee-f76c-48c5-af63-d467806cbf7a.png

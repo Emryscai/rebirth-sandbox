@@ -1,0 +1,21 @@
+{
+  "name": "rebirth-sandbox",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Rebirth Sandbox — a 10x10 grid survival game for GitHub Game Off 2026 (theme: SHIFT).",
+  "author": "JiahaoCai",
+  "license": "SEE LICENSE IN LICENSE",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --open /game.html",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "phaser": "^3.80.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11"
+  }
+}

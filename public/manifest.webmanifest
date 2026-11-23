@@ -1,0 +1,16 @@
+{
+  "name": "重生沙盘 · Rebirth Sandbox",
+  "short_name": "重生沙盘",
+  "description": "你是僵尸，活得越久越强。躲子弹、啃植物、进化。",
+  "lang": "zh-CN",
+  "start_url": "./game.html",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#0a0918",
+  "theme_color": "#0a0918",
+  "icons": [
+    { "src": "./assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
